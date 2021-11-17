@@ -59,9 +59,9 @@ public class Pedido implements Serializable{
 	public PedidoStatus getStatusPedido() {
 		return PedidoStatus.valueOf(statusPedido);
 	}
-	public void setStatusPedido(PedidoStatus status) {
-		if(status!=null) {
-			this.statusPedido = status.getCod();
+	public void setStatusPedido(PedidoStatus statusPedido) {
+		if(statusPedido!=null) {
+			this.statusPedido = statusPedido.getCod();
 		}
 		
 	}
