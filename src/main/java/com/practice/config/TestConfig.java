@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.practice.entities.Categoria;
 import com.practice.entities.ItemPedido;
+import com.practice.entities.Pagamento;
 import com.practice.entities.Pedido;
 import com.practice.entities.Produto;
 import com.practice.entities.Usuario;
@@ -74,6 +75,10 @@ public class TestConfig implements CommandLineRunner{
 		ItemPedido ip3 = new ItemPedido(p2, pr3, 2, pr3.getPreco());
 		ItemPedido ip4 = new ItemPedido(p3,pr5, 2, pr5.getPreco()); 
 		itemPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3,ip4));
+		
+		Pagamento pg1 = new Pagamento(null, Instant.parse("2019-06-20T21:53:07Z"), p1);
+		p1.setPagamento(pg1);
+		pedidoRepository.save(p1);
 	}
 	
 	
