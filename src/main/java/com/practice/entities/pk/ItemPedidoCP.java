@@ -11,7 +11,7 @@ import com.practice.entities.Pedido;
 import com.practice.entities.Produto;
 
 @Embeddable
-public class ItemPedidoPK implements Serializable{
+public class ItemPedidoCP implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
@@ -46,7 +46,7 @@ public class ItemPedidoPK implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ItemPedidoPK other = (ItemPedidoPK) obj;
+		ItemPedidoCP other = (ItemPedidoCP) obj;
 		return Objects.equals(pedido, other.pedido) && Objects.equals(produto, other.produto);
 	}
 }

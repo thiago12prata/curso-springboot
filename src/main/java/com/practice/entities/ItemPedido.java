@@ -6,14 +6,15 @@ import java.util.Objects;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
-import com.practice.entities.pk.ItemPedidoPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.practice.entities.pk.ItemPedidoCP;
 
 @Entity
 public class ItemPedido implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private ItemPedidoPK id;
+	private ItemPedidoCP id = new ItemPedidoCP();
 	
 	private Integer quantidade;
 	private Double preco;
@@ -26,6 +27,7 @@ public class ItemPedido implements Serializable{
 		this.quantidade = quantidade;
 		this.preco = preco;
 	}
+	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}

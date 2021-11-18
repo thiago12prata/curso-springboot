@@ -9,11 +9,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.practice.entities.Categoria;
+import com.practice.entities.ItemPedido;
 import com.practice.entities.Pedido;
 import com.practice.entities.Produto;
 import com.practice.entities.Usuario;
 import com.practice.entities.enums.PedidoStatus;
 import com.practice.repositories.CategoriaRepository;
+import com.practice.repositories.ItemPedidoRepository;
 import com.practice.repositories.PedidoRepository;
 import com.practice.repositories.ProdutoRepository;
 import com.practice.repositories.UsuarioRepository;
@@ -30,6 +32,8 @@ public class TestConfig implements CommandLineRunner{
 	private CategoriaRepository categoriaRepository;
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 	
 	
 	@Override
@@ -65,7 +69,11 @@ public class TestConfig implements CommandLineRunner{
 		usuarioRepository.saveAll(Arrays.asList(u1,u2));
 		pedidoRepository.saveAll(Arrays.asList(p1,p2, p3));
 		
-		
+		ItemPedido ip1 = new ItemPedido(p1, pr1, 2, pr1.getPreco());
+		ItemPedido ip2 = new ItemPedido(p1, pr3, 1, pr3.getPreco());
+		ItemPedido ip3 = new ItemPedido(p2, pr3, 2, pr3.getPreco());
+		ItemPedido ip4 = new ItemPedido(p3,pr5, 2, pr5.getPreco()); 
+		itemPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3,ip4));
 	}
 	
 	
