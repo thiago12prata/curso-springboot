@@ -26,7 +26,7 @@ public class CategoriaResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	private ResponseEntity<Categoria> findById(@PathVariable Long id) {
+	public ResponseEntity<Categoria> findById(@PathVariable Long id) {
 		Categoria obj = service.findbyId(id);
 		return ResponseEntity.ok().body(obj);
 	}

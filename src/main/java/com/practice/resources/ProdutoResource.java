@@ -26,7 +26,7 @@ public class ProdutoResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	private ResponseEntity<Produto> findById(@PathVariable Long id) {
+	public ResponseEntity<Produto> findById(@PathVariable Long id) {
 		Produto obj = service.findbyId(id);
 		return ResponseEntity.ok().body(obj);
 	}
