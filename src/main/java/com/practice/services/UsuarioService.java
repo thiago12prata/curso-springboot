@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.practice.entities.Usuario;
 import com.practice.repositories.UsuarioRepository;
+import com.practice.services.exceptions.RecursoNotFoudException;
 
 @Service
 public class UsuarioService {
@@ -20,7 +21,7 @@ public class UsuarioService {
 	}
 	public Usuario findbyId(Long id) {
 		Optional<Usuario> obj =  repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new RecursoNotFoudException(id));
 	}
 	public Usuario insert(Usuario obj) {
 		return repository.save(obj);
